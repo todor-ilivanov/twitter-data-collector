@@ -1,7 +1,7 @@
 import twitter
 import time
-from src.csv_record import *
-from src.input_arguments_error import InputArgumentsError
+from csv_record import *
+from input_arguments_error import InputArgumentsError
 
 class CsvRecordCreator:
   
