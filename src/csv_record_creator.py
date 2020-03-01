@@ -1,6 +1,6 @@
 import twitter
 import time
-from csv_record import *
+from src.csv_record import *
 
 class CsvRecordCreator:
   
@@ -25,7 +25,7 @@ class CsvRecordCreator:
 
   def create_csv_record(self, user_id, screen_name):
     try:
-      tweets = self.tweet_api_request(user_id, screen_name, count=200) # change to 200!!!!!!
+      tweets = self.tweet_api_request(user_id, screen_name, count=200)
       if tweets == []:
         raise twitter.error.TwitterError('Empty tweets object.')
 
