@@ -9,6 +9,7 @@ record_creator = CsvRecordCreator()
 
 for acc in account_names:
   print(acc['name'])
+  #TODO ADD try-expect here
   record = record_creator.create_csv_record(1, acc['name'])
   if record != None:
     file.write(str(record))

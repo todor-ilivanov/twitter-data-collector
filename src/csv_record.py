@@ -17,11 +17,11 @@ class CsvRecord:
   avg_hashtag_char_num = None	
   avg_mentions_num = None	
   avg_urls_num = None	
-  avg_tweets_per_day = None	
   tweet_url_ratio = None
   retweet_rate = None
   retweet_url_ratio = None	
   tweet_std = None
+  avg_tweets_per_day = None	
 
   def __str__(self):
     record_string = f'{self.userid},{self.user_profile_description},{self.follower_count}, \
