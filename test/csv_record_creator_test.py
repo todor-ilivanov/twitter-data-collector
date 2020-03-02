@@ -1,8 +1,8 @@
 import pytest
 from unittest.mock import MagicMock, Mock
 from test.tweet_stub import *
-from src.csv_record_creator import CsvRecordCreator
 from src.csv_record import CsvRecord
+from src.csv_record_creator import CsvRecordCreator
 from src.input_arguments_error import InputArgumentsError
 from twitter import TwitterError
 
@@ -110,10 +110,11 @@ def test_csv_record_creator_acc_not_found_fall_back():
 
 def test_csv_record_creator_acc_not_found_fall_back_empty_screen_name():
   record_creator = CsvRecordCreator()
-  record_creator.api.GetUserTimeline = Mock(side_effect=[TwitterError('Account not found.'), 123])
+  record_creator.api.GetUserTimeline = Mock(side_effect=TwitterError('Account not found.'))
   
   with pytest.raises(InputArgumentsError) as e:
     record_creator.tweet_api_request(4567, '', 200)
 
   assert e.value.code == 32
-  assert e.value.message == 'Screen name is blank.'
+  assert e.value.message == 'Account not found. Screen name is blank.'
+  assert record_creator.api.GetUserTimeline.call_count == 1
