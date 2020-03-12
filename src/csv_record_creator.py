@@ -25,7 +25,7 @@ class CsvRecordCreator:
       return self.api.GetUserTimeline(screen_name=screen_name, count=count)
     except twitter.error.TwitterError as e:
       if screen_name == '':
-        raise InputArgumentsError(32, f'{e.message} Screen name is blank.')
+        raise InputArgumentsError(32, f'{e}; Screen name is blank.')
       return self.api.GetUserTimeline(screen_name=screen_name, count=count)
       
   def create_csv_record(self, user_id, screen_name):
