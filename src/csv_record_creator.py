@@ -1,4 +1,3 @@
-import twitter
 import time
 from csv_record import *
 from input_arguments_error import InputArgumentsError
@@ -7,12 +6,8 @@ class CsvRecordCreator:
   
   api = None
 
-  def __init__(self):
-    self.api = twitter.Api(consumer_key='WyIVvrJqu6qVC3zhi0RiZRwEY',
-                      consumer_secret='6pcdAv3OwskVnWhWvzsaFDfohWw3OtyUT1jAzdjvAkGSdj62Lp',
-                      access_token_key='321185042-a6KcC4MGwHwOc5OGm6J6LNeV5qqIE4omI5tJqCH9',
-                      access_token_secret='I3H6fqciOVeGaRHKfoRRITx8OJx1qsLheLPok7wiraBO4',
-                      sleep_on_rate_limit=True) # sleeps for 15 min if rate limit is reached
+  def __init__(self, api):
+    self.api = api # sleeps for 15 min if rate limit is reached
 
   def tweet_api_request(self, user_id, screen_name, count):
     try:
