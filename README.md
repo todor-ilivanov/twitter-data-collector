@@ -7,7 +7,7 @@ The workflow of the Twitter Data Collector is the following:
 
 1. Given a user ID, make a request to the Twitter API.
 2. Receive a response including up to 200 most recent tweets.
-3. Perform the necessary transformations on the data (described in detail in Section 3.2) for
+3. Perform the necessary transformations on the data for
 this user.
 4. Repeat for the remaining user IDs until the desired number of real user records is reached.
 
